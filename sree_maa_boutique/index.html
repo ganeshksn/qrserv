@@ -221,11 +221,15 @@
 
             /* auto whatsapp */
 
-            setTimeout(() => {
-                if (/android|iphone/i.test(navigator.userAgent)) {
-                    document.getElementById("waBtn").click();
-                }
-            }, 1500);
+            const AUTO_OPEN_WHATSAPP = false;
+
+            if (AUTO_OPEN_WHATSAPP) {
+                setTimeout(() => {
+                    if (/android|iphone/i.test(navigator.userAgent)) {
+                        document.getElementById("waBtn").click();
+                    }
+                }, 1500);
+            }
 
             /* close */
 
