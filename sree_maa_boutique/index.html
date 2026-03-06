@@ -1,190 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact</title>
 
-<style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Contact</title>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-}
+        <style>
+            :root {
+                --glass: rgba(255, 255, 255, .14);
+                --text: #fff;
+                --radius: 22px;
+            }
 
-body{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-background:linear-gradient(135deg,#0f172a,#1e293b);
-color:white;
-overflow:hidden;
-}
+            @media(prefers-color-scheme:light) {
+                :root {
+                    --glass: rgba(255, 255, 255, .75);
+                    --text: #111;
+                }
+            }
 
-.container{
-width:100%;
-max-width:420px;
-padding:30px 20px;
-text-align:center;
-}
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial;
+            }
 
-.logo{
-margin-bottom:25px;
-}
+            body {
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--text);
+                background: linear-gradient(-45deg, #2563eb, #9333ea, #06b6d4, #3b82f6);
+                background-size: 400% 400%;
+                animation: bg 14s ease infinite;
+            }
 
-.logo img{
-max-width:120px;
-width:100%;
-height:auto;
-}
+            @keyframes bg {
+                0% {
+                    background-position: 0% 50%
+                }
 
-.buttons{
-display:flex;
-flex-direction:column;
-gap:16px;
-margin-top:10px;
-}
+                50% {
+                    background-position: 100% 50%
+                }
 
-.btn{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:10px;
-padding:16px;
-font-size:18px;
-border-radius:14px;
-text-decoration:none;
-color:white;
-font-weight:600;
-transition:all .25s ease;
-box-shadow:0 8px 20px rgba(0,0,0,0.3);
-}
+                100% {
+                    background-position: 0% 50%
+                }
+            }
 
-.btn svg{
-width:22px;
-height:22px;
-}
+            .card {
+                width: 100%;
+                max-width: 380px;
+                padding: 26px;
+                border-radius: var(--radius);
+                background: var(--glass);
+                backdrop-filter: blur(22px);
+                box-shadow: 0 30px 60px rgba(0, 0, 0, .35);
+                text-align: center;
+            }
 
-.call{
-background:linear-gradient(135deg,#22c55e,#16a34a);
-}
+            .logo img {
+                width: 90px;
+                margin-bottom: 14px;
+            }
 
-.whatsapp{
-background:linear-gradient(135deg,#25D366,#128C7E);
-}
+            h1 {
+                font-size: 22px;
+                margin-bottom: 20px;
+                font-weight: 600;
+            }
 
-.location{
-background:linear-gradient(135deg,#3b82f6,#2563eb);
-}
+            .buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
 
-.btn:hover{
-transform:translateY(-3px) scale(1.02);
-box-shadow:0 14px 30px rgba(0,0,0,0.45);
-}
+            .btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                padding: 14px;
+                border-radius: 14px;
+                text-decoration: none;
+                font-weight: 600;
+                color: white;
+                transition: .2s;
+                box-shadow: 0 8px 0 rgba(0, 0, 0, .25);
+            }
 
-.close-btn{
-margin-top:30px;
-padding:12px 18px;
-border-radius:10px;
-background:#ef4444;
-color:white;
-border:none;
-font-size:15px;
-cursor:pointer;
-box-shadow:0 6px 15px rgba(0,0,0,0.3);
-}
+            .btn:hover {
+                transform: translateY(-2px);
+            }
 
-.close-btn:hover{
-background:#dc2626;
-}
+            .btn:active {
+                transform: translateY(5px);
+                box-shadow: 0 3px 0 rgba(0, 0, 0, .25);
+            }
 
-footer{
-margin-top:25px;
-font-size:12px;
-opacity:.7;
-}
+            .btn svg {
+                width: 20px;
+                height: 20px;
+                stroke: white;
+            }
 
-footer a{
-color:#93c5fd;
-text-decoration:none;
-}
+            .call {
+                background: #22c55e
+            }
 
-@media(max-width:480px){
+            .wa {
+                background: #25D366
+            }
 
-.container{
-padding:25px 16px;
-}
+            .map {
+                background: #3b82f6
+            }
 
-.btn{
-font-size:17px;
-padding:15px;
-}
+            .save {
+                background: #f59e0b
+            }
 
-}
+            .share {
+                background: #8b5cf6
+            }
 
-</style>
-</head>
+            .qr-wrap {
+                margin-top: 22px;
+                padding: 14px;
+                border-radius: 18px;
+                background: rgba(255, 255, 255, .18);
+                display: inline-block;
+            }
 
-<body>
+            .qr-wrap img {
+                width: 170px;
+                border-radius: 12px;
+            }
 
-<div class="container">
+            .close {
+                margin-top: 18px;
+                padding: 10px 14px;
+                border: none;
+                border-radius: 10px;
+                background: #ef4444;
+                color: white;
+                cursor: pointer;
+            }
 
-<div class="logo">
-<img src="LOGO_URL" alt="Logo">
-</div>
+            footer {
+                margin-top: 14px;
+                font-size: 12px;
+                opacity: .8;
+            }
+        </style>
+    </head>
 
-<div class="buttons">
+    <body>
 
-<a class="btn call" href="tel:+919390888582">
-<svg fill="currentColor" viewBox="0 0 24 24"><path d="M6.6 10.8a15.05 15.05 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.1 22 2 13.9 2 3c0-.6.4-1 1-1h4.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.4 0 .8-.3 1.1l-2.2 2.2z"/></svg>
-Call
-</a>
+        <div class="card">
 
-<a class="btn whatsapp" href="https://wa.me/9390888582?text=Hello">
-<svg fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.16 6.42 2.16 11.88c0 1.92.51 3.78 1.49 5.42L2 22l4.84-1.6c1.56.85 3.31 1.3 5.2 1.3 5.46 0 9.88-4.42 9.88-9.88S17.5 2 12.04 2zm0 17.88c-1.6 0-3.17-.42-4.56-1.2l-.33-.2-2.87.95.94-2.8-.21-.34a7.77 7.77 0 01-1.18-4.15c0-4.32 3.52-7.84 7.84-7.84s7.84 3.52 7.84 7.84-3.52 7.74-7.47 7.74zm4.3-5.84c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1-.37-1.9-1.18-.7-.62-1.18-1.38-1.32-1.62-.14-.24-.02-.37.1-.5.1-.1.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.42-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.68 2.56 4.08 3.6.57.24 1.02.38 1.36.48.57.18 1.08.16 1.48.1.45-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></svg>
-WhatsApp
-</a>
+            <div class="logo">
+                <img src="">
+            </div>
 
-<a class="btn location" href="https://maps.app.goo.gl/JA9GZFQSVjfqmr4m9">
-<svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 119.5 9 2.5 2.5 0 0112 11.5z"/></svg>
-Location
-</a>
+            <h1>Sree Maa Boutique</h1>
 
-</div>
+            <div class="buttons">
 
-<button class="close-btn" onclick="closeTab()">Close</button>
+                <a class="btn call" href="tel:+919390888582">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.1 5.2 2 2 0 0 1 5.1 3h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.7 2.6a2 2 0 0 1-.5 2.1L9.2 10.8a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.7 2z" />
+                    </svg>
+                    Call
+                </a>
 
-<footer>
-Developed by <a href="https://webdesign.greatindian.net">GreatIndian</a>
-</footer>
+                <a class="btn wa" id="waBtn" href="https://wa.me/9390888582?text=Hello">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12.04 2C6.58 2 2.16 6.42 2.16 11.88c0 1.92.51 3.78 1.49 5.42L2 22l4.84-1.6c1.56.85 3.31 1.3 5.2 1.3 5.46 0 9.88-4.42 9.88-9.88S17.5 2 12.04 2zm0 17.88c-1.6 0-3.17-.42-4.56-1.2l-.33-.2-2.87.95.94-2.8-.21-.34a7.77 7.77 0 01-1.18-4.15c0-4.32 3.52-7.84 7.84-7.84s7.84 3.52 7.84 7.84-3.52 7.74-7.47 7.74zm4.3-5.84c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1-.37-1.9-1.18-.7-.62-1.18-1.38-1.32-1.62-.14-.24-.02-.37.1-.5.1-.1.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.42-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.68 2.56 4.08 3.6.57.24 1.02.38 1.36.48.57.18 1.08.16 1.48.1.45-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z" />
+                    </svg>
+                    WhatsApp
+                </a>
 
-</div>
+                <a class="btn map" href="https://maps.app.goo.gl/JA9GZFQSVjfqmr4m9">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    Location
+                </a>
 
-<script>
+                <button class="btn save" onclick="saveContact()">Save Contact</button>
 
-function openFullscreen(){
+                <button class="btn share" onclick="share()">Share</button>
 
-let el=document.documentElement;
+            </div>
 
-if(el.requestFullscreen){
-el.requestFullscreen();
-}
+            <div class="qr-wrap">
+                <img id="qr">
+            </div>
 
-}
+            <button class="close" onclick="closeTab()">Close</button>
 
-function closeTab(){
+            <footer>Developed by <a href="https://webdesign.greatindian.net">GreatIndian</a></footer>
 
-window.open('','_self');
-window.close();
+        </div>
 
-}
+        <script>
 
-window.onload=openFullscreen;
+            /* fullscreen */
 
-</script>
+            document.documentElement.requestFullscreen?.().catch(() => { });
 
-</body>
+            /* auto whatsapp */
+
+            setTimeout(() => {
+                if (/android|iphone/i.test(navigator.userAgent)) {
+                    document.getElementById("waBtn").click();
+                }
+            }, 1500);
+
+            /* close */
+
+            function closeTab() {
+                window.close();
+                setTimeout(() => history.length > 1 ? history.back() : location = "about:blank", 200);
+            }
+
+            /* share */
+
+            function share() {
+                if (navigator.share) {
+                    navigator.share({ title: "NAME", url: location.href });
+                } else {
+                    navigator.clipboard.writeText(location.href);
+                    alert("Link copied");
+                }
+            }
+
+            /* save contact */
+
+            function saveContact() {
+
+                const name = "NAME";
+                const phone = "PHONE";
+
+                if (/android/i.test(navigator.userAgent)) {
+
+                    location = "intent://contacts/create?name=" +
+                        encodeURIComponent(name) + "&phone=" + phone +
+                        "#Intent;scheme=contacts;package=com.android.contacts;end";
+
+                } else {
+
+                    const v = `BEGIN:VCARD
+VERSION:3.0
+FN:${name}
+TEL:${phone}
+END:VCARD`;
+
+                    const b = new Blob([v], { type: "text/vcard" });
+                    const u = URL.createObjectURL(b);
+                    const a = document.createElement("a");
+                    a.href = u; a.download = "contact.vcf"; a.click();
+
+                }
+
+            }
+
+            /* QR */
+
+            document.getElementById("qr").src =
+                "https://api.qrserver.com/v1/create-qr-code/?size=170x170&margin=10&data=" +
+                encodeURIComponent(location.href);
+
+        </script>
+
+    </body>
+
 </html>
